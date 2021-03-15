@@ -1,0 +1,20 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first mt-3">
+      <h2>Register</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="profileForm">
+      <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" formControlName="email">
+      <input type="text" id="name" class="fadeIn second" name="name" placeholder="Name" formControlName="name">
+      <input type="password" id="password" class="fadeIn second" name="login" placeholder="Password" formControlName="password">
+      <input type="submit" class="fadeIn third" value="Register" (click)="register()">
+    </form>
+
+  </div>
+</div>

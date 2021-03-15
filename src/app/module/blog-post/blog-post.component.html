@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5" *ngIf="blogPost != null">
+
+  <h3 class="card-title">{{blogPost.title}}</h3>
+  <p>
+    <i class="icon-user"></i> <a href="#">{{blogPost.userId}}</a>
+    | <i class="icon-calendar"></i> {{blogPost.createdAt | date:'medium'}}
+    | <i class="icon-comment"></i> <a>{{listComment.length}} Comments</a>
+  </p>
+  <div class="card mt-3 mb-5" >
+    <div class="card-body">
+      <p class="card-text">{{blogPost.content}} </p>
+      <!--    <a href="#" class="btn btn-primary">Read more</a>-->
+    </div>
+  </div>
+
+
+  <h6>Comment</h6>
+  <form [formGroup]="commentForm">
+    <div class="mb-3">
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="content"></textarea>
+      <a class="btn btn-primary" (click)="addComment()">submit</a>
+    </div>
+  </form>
+  <div class="list-group">
+    <a *ngFor="let comment of listComment" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <p class="mb-1">{{comment.userId}}</p>
+        <small class="text-muted">{{comment.createdAt | date:'medium'}}</small>
+      </div>
+      <small class="text-muted">{{comment.content}}</small>
+    </a>
+  </div>
+</div>
+
+
